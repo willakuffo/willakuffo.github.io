@@ -56,6 +56,9 @@ nav.toc a:hover,nav.toc a.on{color:var(--ink);border-left-color:var(--gold)}
 main{padding:24px 0 96px;min-width:0}
 @media (min-width:900px){main{padding:56px 0 120px}}
 .hero{margin:0 0 56px}
+.banner{display:block;width:100%;height:auto;aspect-ratio:2056/765;object-fit:cover;border-radius:12px;border:1px solid var(--rule);background:#fff;margin:0 0 32px}
+:root[data-theme="dark"] .banner{filter:brightness(.88)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .banner{filter:brightness(.88)}}
 .lede{font:400 1.45rem/1.5 var(--serif);max-width:34ch;margin:0 0 28px;letter-spacing:-.005em}
 @media (min-width:900px){.lede{font-size:1.7rem}}
 figure.track{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:16px 16px 12px}
@@ -110,6 +113,7 @@ footer{margin-top:72px;font:400 .82rem/1.5 var(--sans);color:var(--muted)}
 
   <main>
     <div class="hero">
+      <img class="banner" src="banner.jpg" alt="An optimization trajectory descending a nonconvex cost landscape to its minimum" width="1600" height="595">
       <p class="lede">I design control methods that combine the adaptability of learning with the structure and guarantees of model predictive control, for robots that must work safely together.</p>
       <figure class="track">
         <svg id="trackSvg" viewBox="0 0 600 220" role="img" aria-label="A racecar following a racing line around a closed track, with its prediction horizon drawn ahead of it">
