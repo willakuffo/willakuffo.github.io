@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>William Kwesi Akuffo</title>
+<meta name="description" content="William Kwesi Akuffo — robotics and control researcher. Learning-based and distributed MPC for safe multi-robot systems. Faculty, Ashesi University.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F5F2; --surface:#FFFFFF; --ink:#18221F; --muted:#5A6662; --rule:#D9DFDB;
+  --teal:#0E5C57; --gold:#B9851A; --track:#E3E8E4;
+  --serif:"Spectral",Georgia,serif; --sans:"Manrope",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#111715; --surface:#18201D; --ink:#E4EBE8; --muted:#97A39F; --rule:#2A3430;
+    --teal:#63C3B9; --gold:#E2AF4A; --track:#222C29;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111715; --surface:#18201D; --ink:#E4EBE8; --muted:#97A39F; --rule:#2A3430;
+  --teal:#63C3B9; --gold:#E2AF4A; --track:#222C29;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.7 var(--serif);-webkit-font-smoothing:antialiased}
+a{color:var(--teal);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px;display:grid;grid-template-columns:1fr;gap:0}
+@media (min-width:900px){.wrap{grid-template-columns:280px 1fr;gap:64px;padding:0 32px}}
+
+/* Sidebar */
+aside{padding:40px 0 8px}
+@media (min-width:900px){aside{position:sticky;top:0;align-self:start;height:100vh;padding:56px 0;display:flex;flex-direction:column}}
+.photo{width:112px;height:112px;border-radius:50%;overflow:hidden;background:var(--teal);color:var(--bg);display:grid;place-items:center;font:500 2.2rem/1 var(--serif)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+aside h1{font:500 1.75rem/1.2 var(--serif);margin:20px 0 6px;letter-spacing:-.01em}
+.role{font:400 .9rem/1.55 var(--sans);color:var(--muted);margin:0}
+.links{list-style:none;padding:0;margin:18px 0 0;font:500 .875rem/1 var(--sans);display:flex;flex-wrap:wrap;gap:10px 16px}
+nav.toc{display:none;margin-top:36px;font:500 .875rem/1 var(--sans)}
+@media (min-width:900px){nav.toc{display:block}}
+nav.toc a{display:block;padding:7px 0 7px 12px;color:var(--muted);text-decoration:none;border-left:2px solid var(--rule)}
+nav.toc a:hover,nav.toc a.on{color:var(--ink);border-left-color:var(--gold)}
+.theme{margin-top:auto;align-self:flex-start;background:none;border:1px solid var(--rule);color:var(--muted);font:500 .8rem/1 var(--sans);padding:8px 12px;border-radius:999px;cursor:pointer}
+.theme:hover{color:var(--ink)}
+@media (max-width:899px){.theme{margin-top:18px}}
+
+/* Main */
+main{padding:24px 0 96px;min-width:0}
+@media (min-width:900px){main{padding:56px 0 120px}}
+.hero{margin:0 0 56px}
+.lede{font:400 1.45rem/1.5 var(--serif);max-width:34ch;margin:0 0 28px;letter-spacing:-.005em}
+@media (min-width:900px){.lede{font-size:1.7rem}}
+figure.track{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:16px 16px 12px}
+figure.track svg{width:100%;height:auto;display:block}
+figcaption{font:400 .82rem/1.5 var(--sans);color:var(--muted);margin-top:8px}
+
+section{padding-top:48px;margin-top:8px;border-top:1px solid var(--rule);scroll-margin-top:16px}
+h2{font:600 1.3rem/1.3 var(--serif);margin:0 0 20px}
+p{margin:0 0 1em;max-width:68ch}
+.interests{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:20px 0 0}
+.interests li{font:500 .82rem/1 var(--sans);padding:8px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--rule)}
+
+.entry{display:grid;grid-template-columns:1fr;gap:2px 28px;padding:14px 0}
+@media (min-width:640px){.entry{grid-template-columns:118px 1fr}}
+.when{font:500 .82rem/1.9 var(--sans);color:var(--muted);font-variant-numeric:tabular-nums}
+.entry h3{font:600 1.05rem/1.45 var(--serif);margin:0}
+.entry .where{font:400 .9rem/1.5 var(--sans);color:var(--muted);margin:2px 0 6px}
+.entry ul{margin:6px 0 0;padding-left:1.1em;max-width:68ch}
+.entry li{margin:3px 0}
+.pub{padding:4px 0 0;max-width:68ch}
+.pub .t{font-weight:600}
+.pub .meta{font:400 .9rem/1.55 var(--sans);color:var(--muted);display:block;margin-top:4px}
+.me{text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
+footer{margin-top:72px;font:400 .82rem/1.5 var(--sans);color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <aside>
+    <div class="photo" aria-hidden="true"><img src="profile.jpg" alt="" onerror="this.remove()"><span>WA</span></div>
+    <h1>William Kwesi Akuffo</h1>
+    <p class="role">Faculty, Department of Engineering<br>Ashesi University, Ghana</p>
+    <ul class="links">
+      <li><a href="mailto:wakuffo@ashesi.edu.gh">Email</a></li>
+      <li><a href="https://linkedin.com/in/williamakuffo">LinkedIn</a></li>
+      <li><a href="cv.pdf">CV</a></li>
+      <!-- <li><a href="https://scholar.google.com/">Scholar</a></li> -->
+      <!-- <li><a href="https://github.com/">GitHub</a></li> -->
+    </ul>
+    <nav class="toc" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#projects">Projects</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#awards">Grants &amp; awards</a>
+    </nav>
+    <button class="theme" type="button" id="themeBtn">Switch theme</button>
+  </aside>
+
+  <main>
+    <div class="hero">
+      <p class="lede">I design control methods that combine the adaptability of learning with the structure and guarantees of model predictive control, for robots that must work safely together.</p>
+      <figure class="track">
+        <svg id="trackSvg" viewBox="0 0 600 220" role="img" aria-label="A racecar following a racing line around a closed track, with its prediction horizon drawn ahead of it">
+          <path id="road" d="M70,110 C70,45 170,30 245,52 S360,104 425,62 S555,32 555,110 S485,192 385,172 S265,128 205,168 S70,178 70,110 Z" fill="none" stroke="var(--track)" stroke-width="26" stroke-linejoin="round"/>
+          <path id="line" d="M70,110 C70,45 170,30 245,52 S360,104 425,62 S555,32 555,110 S485,192 385,172 S265,128 205,168 S70,178 70,110 Z" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4 6" opacity=".6"/>
+          <g id="horizon"></g>
+          <circle id="car" r="6" fill="var(--teal)"/>
+        </svg>
+        <figcaption>A car tracking its path with a 20-step prediction horizon, the setting of my MSc thesis on learned terminal costs for model predictive contouring control.</figcaption>
+      </figure>
+    </div>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>I am a full-time faculty member in the Department of Engineering at Ashesi University, where I teach mechatronics and control and lead the mechatronics programme. I hold an MSc in Mechatronics Engineering from the joint Ashesi–ETH Zürich programme and a BSc in Electrical and Electronics Engineering from Ashesi.</p>
+      <p>My MSc thesis, supervised by Prof. Melanie Zeilinger and Dr. Andrea Carron at ETH Zürich's Institute for Dynamic Systems and Control, used reinforcement learning to design terminal ingredients for model predictive contouring control in autonomous racing. I am now building toward learning-enhanced, distributed MPC for cooperative multi-robot systems operating under uncertainty, communication limits and tight energy budgets.</p>
+      <p>Most of my work happens between theory and hardware: I build the platforms I test on, and I teach the same way, connecting each method to a system students can run.</p>
+    </section>
+
+    <section id="research">
+      <h2>Research</h2>
+      <p>How can learned components augment predictive control, closing the optimality gap of finite-horizon MPC and cutting computation, without giving up stability, recursive feasibility and safety? And how do these methods extend to heterogeneous teams of ground and aerial robots that must coordinate?</p>
+      <ul class="interests" aria-label="Research interests">
+        <li>Multi-agent robotic systems</li>
+        <li>Learning-based MPC</li>
+        <li>Distributed and cooperative MPC</li>
+        <li>Control barrier functions</li>
+        <li>Reinforcement learning for control</li>
+        <li>State estimation (EKF)</li>
+        <li>Perception-aware planning</li>
+        <li>Visual servoing</li>
+        <li>Numerical optimization</li>
+        <li>UGVs, UAVs and manipulators</li>
+      </ul>
+    </section>
+
+    <section id="publications">
+      <h2>Publications</h2>
+      <div class="pub">
+        <span class="me">W. K. Akuffo</span>, O. P. Odekunle, and S. K. Armah. <span class="t">Transient Response Enhancement in Time-Delayed Teleoperated Systems via Gain Correction.</span>
+        <span class="meta">4th Int. Conf. on Electrical, Computer, Communications and Mechatronics Engineering (ICECCME), Malé, Maldives, 2024. <a href="https://doi.org/10.1109/ICECCME62383.2024.10797207">doi:10.1109/ICECCME62383.2024.10797207</a></span>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="entry">
+        <div class="when">2026–now</div>
+        <div><h3>Vision-based pose estimation for position-based visual servoing</h3>
+          <ul>
+            <li>Real-time 6-DoF pose estimation on an Intel RealSense D435i using YOLOE segmentation, LightGlue matching, RANSAC and Kabsch/SVD.</li>
+            <li>Characterising model-free pose estimators as closed-loop feedback sensors for PBVS, linking perception quality to control performance.</li>
+            <li>Comparing gradient descent, Newton–Raphson and Gauss–Newton solvers for multi-DoF arm inverse kinematics.</li>
+          </ul></div>
+      </div>
+      <div class="entry">
+        <div class="when">2025–now</div>
+        <div><h3>Autonomous planters for large-scale farms</h3>
+          <p class="where">Prof. Adei Research Studio Grant, $20,000</p>
+          <ul>
+            <li>Autonomous traction and navigation for a UGV planter, with hydraulic propulsion modelled in Simscape.</li>
+            <li>Control for precision seed metering and seed-miss compensation.</li>
+            <li>Heterogeneous UGV–UAV cooperation for field autonomy.</li>
+          </ul></div>
+      </div>
+      <div class="entry">
+        <div class="when">2025–now</div>
+        <div><h3>Modular dynamical-systems platforms for teaching and research</h3>
+          <ul>
+            <li>A 6-DoF arm, an autonomous racing platform, a bicopter and an EKF-enabled rover for crop monitoring, built as shared testbeds for control and multi-robot research.</li>
+            <li>Reconfigurable platforms whose dynamics can be swapped module by module.</li>
+          </ul></div>
+      </div>
+      <div class="entry">
+        <div class="when">2024</div>
+        <div><h3>Learning-based MPC for autonomous racing</h3>
+          <p class="where">MSc thesis, IDSC, ETH Zürich</p>
+          <ul>
+            <li>Used the critic of an actor-critic RL agent as the MPCC terminal cost (via acados and L4CasADi): a 20-step horizon matched a 30-step horizon without terminal cost, with faster solves.</li>
+            <li>Warm-started the solver with the RL policy in hard-to-guess regions such as chicanes.</li>
+            <li>Now extending to context-conditioned terminal value functions, including a multi-agent variant.</li>
+          </ul></div>
+      </div>
+      <div class="entry">
+        <div class="when">2023–2024</div>
+        <div><h3>Time-delayed teleoperated robotics</h3>
+          <ul><li>Stability and transient-response analysis under communication delay, with a gain-correction method validated on hardware-in-the-loop DC-motor experiments.</li></ul></div>
+      </div>
+      <div class="entry">
+        <div class="when">2023</div>
+        <div><h3>Quadrotor modelling and control</h3>
+          <ul><li>UDP teleoperation interface and system identification of input-to-altitude dynamics for model-based altitude control.</li></ul></div>
+      </div>
+    </section>
+
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <div class="entry">
+        <div class="when">2025–now</div>
+        <div><h3>Courses at Ashesi University</h3>
+          <ul>
+            <li>ENGR 112 Introduction to Engineering</li>
+            <li>ENGR 411 Advanced Control Systems</li>
+            <li>ENGR 442 Mechatronics</li>
+          </ul></div>
+      </div>
+      <div class="entry">
+        <div class="when">2025–2027</div>
+        <div><h3>Capstone supervision</h3>
+          <ul>
+            <li>Bicopter instructional platform</li>
+            <li>Stereo-vision neuromuscular input modelling for prosthetic hand control</li>
+            <li>General-purpose 6-DoF robotic arm</li>
+            <li>EKF-SLAM mobile manipulator rover for crop monitoring</li>
+            <li>Modular autonomous driving platform</li>
+            <li>Curvature-aware pure pursuit with velocity scheduling for racing</li>
+            <li>Cross-track policy generalisation of actor-critic RL for racing</li>
+          </ul></div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="entry">
+        <div class="when">2022–2024</div>
+        <div><h3>MSc Mechatronics Engineering</h3>
+          <p class="where">Ashesi University &amp; ETH Zürich (joint MSc/MAS)</p>
+          <p>Thesis: On the Design of Terminal Ingredients for Model Predictive Contouring Control for Autonomous Racing using Reinforcement Learning. Supervisors: Prof. Dr. Melanie Zeilinger, Dr. Andrea Carron.</p></div>
+      </div>
+      <div class="entry">
+        <div class="when">2017–2021</div>
+        <div><h3>BSc Electrical and Electronics Engineering</h3>
+          <p class="where">Ashesi University</p>
+          <p>Capstone: A Standalone IMU Position Determining System for UAVs using Artificial Intelligence. Supervisor: Prof. Dr. Nathan Amanquah.</p></div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="entry"><div class="when">2025–now</div><div><h3>Full-time faculty</h3><p class="where">Department of Engineering, Ashesi University · Mechatronics faculty lead since 2026</p></div></div>
+      <div class="entry"><div class="when">2023–2025</div><div><h3>Research assistant</h3><p class="where">Ashesi Robotics and Controls Lab (ARCLab)</p></div></div>
+      <div class="entry"><div class="when">2023–2024</div><div><h3>Research assistant</h3><p class="where">Academic Affairs Research Studio, Ashesi University</p></div></div>
+      <div class="entry"><div class="when">2024</div><div><h3>Engineering intern</h3><p class="where">OceanLift Subsea, Accra</p></div></div>
+      <div class="entry"><div class="when">2022</div><div><h3>Systems engineer</h3><p class="where">Metx Engineering, Accra</p></div></div>
+    </section>
+
+    <section id="awards">
+      <h2>Grants &amp; awards</h2>
+      <div class="entry"><div class="when">2025</div><div><h3>Prof. Adei Research Studio Grant</h3><p class="where">Office of the Provost, Ashesi University · $20,000</p></div></div>
+      <div class="entry"><div class="when">2025</div><div><h3>Small Research Support</h3><p class="where">Patrick Awuah Professorial Chair · $4,000</p></div></div>
+      <div class="entry"><div class="when">2022–2024</div><div><h3>Financial Aid Scholarship</h3><p class="where">Ashesi–ETH MSc Mechatronics Engineering</p></div></div>
+      <div class="entry"><div class="when">2021</div><div><h3>Winner, Hacklab Hackathon</h3><p class="where">AI for Digital Transformation in Africa (Team Zetta)</p></div></div>
+    </section>
+
+    <footer>Last updated October 2026.</footer>
+  </main>
+</div>
+
+<script>
+// Theme toggle
+(function(){
+  var btn=document.getElementById('themeBtn'), root=document.documentElement, saved=null;
+  try{saved=localStorage.getItem('theme')}catch(e){}
+  if(saved) root.setAttribute('data-theme',saved);
+  btn.addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    var next=cur==='dark'?'light':'dark';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next)}catch(e){}
+  });
+})();
+
+// Racecar with prediction horizon
+(function(){
+  var path=document.getElementById('line'), car=document.getElementById('car'), g=document.getElementById('horizon');
+  var L=path.getTotalLength(), N=20, step=9, dots=[];
+  for(var i=1;i<=N;i++){
+    var c=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    c.setAttribute('r',2.6); c.setAttribute('fill','var(--gold)');
+    c.setAttribute('opacity',(1-i/(N+4)).toFixed(2));
+    g.appendChild(c); dots.push(c);
+  }
+  function place(s){
+    var p=path.getPointAtLength(s%L); car.setAttribute('cx',p.x); car.setAttribute('cy',p.y);
+    for(var i=0;i<N;i++){var q=path.getPointAtLength((s+(i+1)*step)%L); dots[i].setAttribute('cx',q.x); dots[i].setAttribute('cy',q.y);}
+  }
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){place(L*0.08);return;}
+  var t0=null, speed=L/14000; // one lap ≈ 14 s
+  function frame(t){ if(t0===null)t0=t; place((t-t0)*speed); requestAnimationFrame(frame); }
+  requestAnimationFrame(frame);
+})();
+
+// Highlight current section in sidebar
+(function(){
+  var links=[].slice.call(document.querySelectorAll('nav.toc a'));
+  if(!('IntersectionObserver' in window)) return;
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)}); } });
+  },{rootMargin:'-30% 0px -60% 0px'});
+  document.querySelectorAll('main section').forEach(function(s){io.observe(s)});
+})();
+</script>
+</body>
+</html>
