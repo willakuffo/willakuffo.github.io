@@ -82,6 +82,12 @@ p{margin:0 0 1em;max-width:68ch}
 .pub .t{font-weight:600}
 .pub .meta{font:400 .9rem/1.55 var(--sans);color:var(--muted);display:block;margin-top:4px}
 .me{text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
+.clips{grid-column:1/-1;display:grid;grid-template-columns:1fr;gap:16px;margin:14px 0 0}
+@media (min-width:640px){.clips{grid-template-columns:1fr 1fr}}
+.clips figure{margin:0}
+.clips video{width:100%;height:auto;display:block;border-radius:8px;border:1px solid var(--rule);background:#fff}
+.clips figcaption b{color:var(--ink);font-weight:600}
+.more{grid-column:1/-1;margin:0;font:500 .9rem/1.5 var(--sans)}
 footer{margin-top:72px;font:400 .82rem/1.5 var(--sans);color:var(--muted)}
 </style>
 </head>
@@ -192,10 +198,17 @@ footer{margin-top:72px;font:400 .82rem/1.5 var(--sans);color:var(--muted)}
         <div><h3>Learning-based MPC for autonomous racing</h3>
           <p class="where">MSc thesis, IDSC, ETH Zürich</p>
           <ul>
-            <li>Used the critic of an actor-critic RL agent as the MPCC terminal cost (via acados and L4CasADi): a 20-step horizon matched a 30-step horizon without terminal cost, with faster solves.</li>
+            <li>Used the critic of an actor-critic RL agent as the MPCC terminal cost (via acados and L4CasADi). At a 20-step horizon it gave faster laps (4.63 s vs 4.78 s); at 30 steps the two controllers converge.</li>
             <li>Warm-started the solver with the RL policy in hard-to-guess regions such as chicanes.</li>
             <li>Now extending to context-conditioned terminal value functions, including a multi-agent variant.</li>
           </ul></div>
+        <div class="clips">
+          <figure><video src="media/mpcc_h20.mp4" poster="media/mpcc_h20.jpg" muted loop playsinline autoplay controls preload="metadata" aria-label="Simulation, horizon 20"></video>
+            <figcaption><b>N = 20.</b> With the learned terminal cost (blue), the car brakes less, carries more corner speed and pulls ahead of plain MPCC (orange).</figcaption></figure>
+          <figure><video src="media/mpcc_h30.mp4" poster="media/mpcc_h30.jpg" muted loop playsinline autoplay controls preload="metadata" aria-label="Simulation, horizon 30"></video>
+            <figcaption><b>N = 30.</b> The two cars run almost together: the longer horizon already captures most of the cost-to-go.</figcaption></figure>
+          <p class="more"><a href="mpcc-thesis.html">Method, results and compute analysis</a></p>
+        </div>
       </div>
       <div class="entry">
         <div class="when">2023–2024</div>
@@ -306,6 +319,9 @@ footer{margin-top:72px;font:400 .82rem/1.5 var(--sans);color:var(--muted)}
   function frame(t){ if(t0===null)t0=t; place((t-t0)*speed); requestAnimationFrame(frame); }
   requestAnimationFrame(frame);
 })();
+
+// Respect reduced motion for clips
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){document.querySelectorAll('video[autoplay]').forEach(function(v){v.removeAttribute('autoplay');v.pause();});}
 
 // Highlight current section in sidebar
 (function(){
